@@ -40,15 +40,13 @@ class Subway
 
   def initialize
 
-  red_stations = ['south station','park street','kendall','central','harvard', 'porter', 'davis' ,'alewife'].map {|i| Station.new(i)}
-  green_stations = ['government center','park street','boylston','arlington','copley','hynes', 'kenmore'].map {|i| Station.new(i)}
-  orange_stations = ['north station','haymarket','park street','state','cowntown crossing','chinatown','back bay','forest hills'].map {|i| Station.new(i)}
+  
 
-  @red_line = Line.new('red',red_stations)
+  @red_line = Line.new('red',['south station','park street','kendall','central','harvard', 'porter', 'davis' ,'alewife'].map {|i| Station.new(i)})
 
-  @green_line = Line.new('green' ,green_stations)
+  @green_line = Line.new('green' ,['government center','park street','boylston','arlington','copley','hynes', 'kenmore'].map {|i| Station.new(i)})
 
-  @orange_line = Line.new('orange',orange_stations)
+  @orange_line = Line.new('orange',['north station','haymarket','park street','state','cowntown crossing','chinatown','back bay','forest hills'].map {|i| Station.new(i)})
     
   end
   def stops_between_stations(start_line, start_station, end_line, end_station)
