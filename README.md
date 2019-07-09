@@ -12,16 +12,7 @@ Create a program that models a subway system.
 The program takes the line and stop that a user is getting on at and the line and stop that user is getting off at and prints the journey and the total number of stops for the trip in the console:
 
 There are 3 subway lines:
-
-**Red line**
-- South Station
-- Park Street
-- Kendall
-- Central
-- Harvard
-- Porter
-- Davis
-- Alewife
+ 
 
 **Green line** 
 - Government Center
@@ -49,25 +40,40 @@ All 3 subway lines intersect at Park Street, but there are no other intersection
 Tell the user the number of stops between stations using ruby classes.
 ```rb
 class Subway
-  def stops_between_stations(start_line, start_station, end_line, end_station)
-  end
-end
+
+    def stops_between_stations(start_line, start_station, end_line, end_station)
+    lines = {
+      Red: ['South Station','Park Street','Kendall','Central','Harvard','Porter','Davis','Alewife'],
+      Green: ['Government Center','Park Street','Boylston','Arlington','Copley','Hynes','Kenmore'],
+      Orange: ['North Station','Haymarket', 'Park Street','Downtown Crossing','Chinatown','Back Bay','Forest Hills'] }
+      
+        start_index = lines[start_line.to_sym].index(start_station)
+        end_index = lines[end_line.to_sym].index(end_station)
   
-# One line, all the stations on that line
-class Line
-end
+      if (start_line == end_line)
+        
+        
+        return (start_index - end_index).abs
+      
+    
+    end
+     start_line_park_street_index = lines[start_line.to_sym].index('Park Street')
+     park_street = (start_index - start_line_park_street_index).abs
+  
+      end_line_park_street_index = lines[end_line.to_sym].index('Park Street')
+      destination =(end_index - end_line_park_street_index).abs
+      total_trip = park_street + destination
+  
+     return total_trip
+  
+    end
+  end
+  
 
-# One station
-class Station
-end
-```
-
-And we should be able to find the number of stops with
-```rb
-mbta = Subway.new
-mbta.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
-mbta.stops_between_stations('Red', 'Alewife', 'Red', 'South Station') # 7
-mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') # 6
+  subway =Subway.new
+   p subway.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
+    p subway.stops_between_stations('Red', 'Alewife', 'Red', 'South Station') # 7
+   p subway.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') # 6
 ```
 
 ### Bonus
