@@ -21,32 +21,43 @@ class Subway
       
         if @begin_trip == @end_trip  
           puts "Start and End line is the same: #{start_line}"
-          
           case @begin_trip
           when 0 
-            # RED
-          if @Red.find_index(start_station) == @Red.find_index(end_station) 
-            puts "You are at your destination"
-          else
-            puts "Incorrect input"
+          # --------------------- CASE RED ---------------------- #
+            if @Red.find_index(start_station) == @Red.find_index(end_station) 
+            p "You are at your destination"
+            p "Number of stops: #{@stops}"
+          elsif @Red.find_index(start_station) != @Red.find_index(end_station)
+            @stops = @Red.find_index(end_station)
+            p "Number of stops: #{@stops}"
           end
           when 1
-            p "GREEN"
-
+            # --------------------- CASE GREEN ---------------------- #
+            if @Green.find_index(start_station) == @Green.find_index(end_station) 
+              p "You are at your destination"
+              p "Number of stops: #{@stops}"
+            elsif @Green.find_index(start_station) != @Green.find_index(end_station)
+              @stops = @Green.find_index(end_station)
+              p "Number of stops: #{@stops}"
+            end  
           when 2
-            p "Orang"
-
+            # --------------------- CASE ORANGE ---------------------- #
+            if @Orange.find_index(start_station) == @Orange.find_index(end_station) 
+              p "You are at your destination"
+              p "Number of stops: #{@stops}"
+            elsif @Orange.find_index(start_station) != @Orange.find_index(end_station)
+              @stops = @Orange.find_index(end_station)
+              p "Number of stops: #{@stops}"
+            end  
           else
-            puts "Incorrect input"
+            p "Incorrect input"
           end
           
 
-
-
         elsif @begin_trip != @end_trip
-          puts "Rider arrives at #{start_line} line and #{start_station} station."
+          p "Rider arrives at #{start_line} line and #{start_station} station."
           
-        else puts "Sorry, incorrect input."
+        else p "Sorry, incorrect input."
       end
 
     end
@@ -69,4 +80,4 @@ class Line < Subway
 
 
 mbta = Subway.new
-mbta.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife')
+mbta.stops_between_stations('Green', 'Government Center', 'Green', 'Park Street')
