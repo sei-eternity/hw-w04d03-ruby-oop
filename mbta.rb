@@ -21,12 +21,24 @@ class Subway
       
         if @begin_trip == @end_trip  
           puts "Start and End line is the same: #{start_line}"
+          
+          case @begin_trip
+          when 0 
+            # RED
           if @Red.find_index(start_station) == @Red.find_index(end_station) 
             puts "You are at your destination"
           else
             puts "Incorrect input"
           end
+          when 1
+            p "GREEN"
 
+          when 2
+            p "Orang"
+
+          else
+            puts "Incorrect input"
+          end
           
 
 
