@@ -3,13 +3,6 @@
 
 class Subway
 
-  # @subway_lines = {
-  # Red: ['South Station','Park Street','Kendall','Central','Harvard','Porter','Davis','Alewife'],
-  # Green: ['Government Center','Park Street','Boylston','Arlington','Copley','Hynes','Kenmore'],
-  # Orange: ['North Station','Haymarket', 'Park Street','Downtown Crossing','Chinatown','Back Bay','Forest Hills']
-  #       }
-#  p @subway_lines[:Red][0]
-#  p @subway_lines[:Red].find_index('Kendall')
   def stops_between_stations(start_line, start_station, end_line, end_station)
 
 # p start_line  #red
