@@ -3,10 +3,7 @@ class Subway
   # attr_accessor :lines
   # def initialize(lines) 
   #   @lines = lines
-  #   @start_line = start_line
-  #   @start_station = start_station
-  #   @end_line = end_line
-  #   @end_station = end_station
+
   end
     def stops_between_stations(start_line, start_station, end_line, end_station)
 
