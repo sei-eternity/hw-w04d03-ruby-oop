@@ -2,7 +2,6 @@
 
 
 
-# One line, all the stations on that line
 class Line 
   def initialize(line , stations = [])
     @line, @stations = line , stations
@@ -17,7 +16,7 @@ end
 
 
 
-# One station
+
 class Station 
   attr_accessor :station
   def initialize(station)
@@ -27,15 +26,7 @@ end
 
 
 
-
-
-# Your solution here
 class Subway 
-
-
-
-
-  
 
 
   def initialize
@@ -46,10 +37,23 @@ class Subway
 
   @green_line = Line.new('green' ,['government center','park street','boylston','arlington','copley','hynes', 'kenmore'].map {|i| Station.new(i)})
 
-  @orange_line = Line.new('orange',['north station','haymarket','park street','state','cowntown crossing','chinatown','back bay','forest hills'].map {|i| Station.new(i)})
+  @orange_line = Line.new('orange',['north station','haymarket','park street','state','downtown crossing','chinatown','back bay','forest hills'].map {|i| Station.new(i)})
     
   end
-  def stops_between_stations(start_line, start_station, end_line, end_station)
+  def stops_between_stations
+
+
+    p 'Enter starting line: '
+    start_line = gets.chomp
+
+    p 'Enter starting station'
+    start_station = gets.chomp
+
+    p 'Enter ending line: '
+    end_line = gets.chomp
+
+    p 'Enter ending station'
+    end_station = gets.chomp
 
     start_line.downcase!
     start_station.downcase!
@@ -75,6 +79,7 @@ class Subway
     else
     end_l = @orange_line
     end
+    
 
   start_s = nil
   end_s = nil
@@ -112,6 +117,4 @@ class Subway
 end
   
 mbta = Subway.new
-mbta.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
-mbta.stops_between_stations('Red', 'Alewife', 'Red', 'South Station') # 7
-mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') # 6
+mbta.stops_between_stations
