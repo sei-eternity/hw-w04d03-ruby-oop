@@ -18,7 +18,8 @@ class Subway
         @start_station = start_station
         @end_station = end_station
         # @stations = ["#{@Red["#{@start_station}"]}", "#{@Green["#{@start_station}"}", "#{@Orange["#{@start_station}"}"]
-      
+          
+          # --------------------- Same Line ---------------------- #
         if @begin_trip == @end_trip  
           puts "Start and End line is the same: #{start_line}"
           case @begin_trip
@@ -53,10 +54,12 @@ class Subway
             p "Incorrect input"
           end
           
-
+            # --------------------- Different Lines ---------------------- #
         elsif @begin_trip != @end_trip
           p "Rider arrives at #{start_line} line and #{start_station} station."
-          
+          if @end_station == "Park Street" and @begin_trip != 1
+            p "Rider stopped at park street"
+          end
         else p "Sorry, incorrect input."
       end
 
@@ -80,4 +83,4 @@ class Line < Subway
 
 
 mbta = Subway.new
-mbta.stops_between_stations('Green', 'Government Center', 'Green', 'Park Street')
+mbta.stops_between_stations('Red', 'South Station', 'Green', 'Park Street')
