@@ -22,7 +22,6 @@ class Subway
     start_line_int = start_line.find_station("Park Street")
     end_line_int = end_line.find_station("Park Street")
     start_line.set_current_station(start_station)
-    end_line.set_current_station(end_line_int)
     stops = 0
     passed_stations = [start_line.current_station.name]
 
@@ -41,6 +40,8 @@ class Subway
     p passed_stations.join(", ")
 
   else
+    end_line.set_current_station(end_line_int)
+
     traverse_direction = start_line.find_station_index(start_station) > start_line.find_station_index(start_line_int)? true: false
     while start_line.current_station != start_line_int
       traverse_direction ? (start_line.backward_station):(start_line.forward_station)
@@ -111,11 +112,11 @@ class Station
 end
 
 mbta = Subway.new 
-# mbta.stops_between_stations('Red', 'Alewife', 'Red', 'South Station') # 7
-# mbta.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
-# mbta.stops_between_stations('Red','South Station', 'Red', 'Alewife' ) # 7
-# mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') # 6
-mbta.stops_between_stations('Orange', 'Forest Hills', 'Green', 'Kenmore') 
+mbta.stops_between_stations('Red', 'Alewife', 'Red', 'South Station') # 7
+mbta.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
+mbta.stops_between_stations('Red','South Station', 'Red', 'Alewife' ) # 7
+mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') # 6
+# mbta.stops_between_stations('Orange', 'Forest Hills', 'Green', 'Kenmore') 
 
-# mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') 
+mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') 
 
