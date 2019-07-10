@@ -69,15 +69,14 @@ end
   
 # One line, all the stations on that line
 class Line < Subway
-    def oneLineStops(line, start_station, end_station)
-
-
-    end
+    # def oneLineStops(line, start_station, end_station)
+    # end
 
  end
-# # One station
-# class Station < Subway
-# end
+
+ # One station
+class Station < Subway
+end
 
 
 
