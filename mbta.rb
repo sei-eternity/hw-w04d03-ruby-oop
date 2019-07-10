@@ -9,11 +9,17 @@ class Subway
       @orange = Line.new(['North Station', 'Haymarket', 'Park Street', 'State', 'Downtown Crossing', 'Chinatown', 'Back Bay', 'Forest Hills'])
   end
 
-  def stops_between_stations(start_line,  start_station, end_line, end_station)
-
-    #makee these variables accessable from out this methods
-     @start_line = start_line 
-     @end_line = end_line
+  def stops_between_stations()
+    #git start and end info from user
+    p "Enter Your Start Line:"
+    @start_line = gets.chomp
+    p "Enter Your Start Station:"
+    @start_station = gets.chomp
+   
+    p "Enter Your End Line:"
+    @end_line = gets.chomp
+    p  "Enter Your End Station:"
+   @end_station = gets.chomp
     
      #check value of START line
         case (@start_line)
@@ -29,33 +35,34 @@ class Subway
               when "Orange" then endd = orange
           else return p "Not valied END Line"
         end
-        #print info
-        p "You must travel through the following stops on the #{start_line} line:"
+
+    #print info
+    p "You must travel through the following stops on the #{@start_line} line:"
 
         #in the same LINE
-        if start_line == end_line
+        if @start_line == @end_line
           #calling print name methode
-          startt.print_names(start_station, end_station)
+          startt.print_names(@start_station, @end_station)
           #total stops
-          total =  startt.stops(start_station, end_station)
+          total =  startt.stops(@start_station, @end_station)
           p "#{total} stops in total."
         else
           # FOR different lines
           #calling print name methode
-          startt.print_names(start_station, "Park Street")
+          startt.print_names(@start_station, "Park Street")
           #print info
           p "Change at Park Street."
-          p "Your trip continues through the following stops on #{end_line} Line:" 
+          p "Your trip continues through the following stops on #{@end_line} Line:" 
 
           #calling print names methode for the stations after Park Street
-          endd.print_names("Park Street", end_station)
+          endd.print_names("Park Street", @end_station)
 
           #total stops
-          total = startt.stops(start_station, "Park Street") + endd.stops("Park Street", end_station)
+          total = startt.stops(@start_station, "Park Street") + endd.stops("Park Street", @end_station)
           p "#{total} stops in total."
-        end
-    end
-end
+        end# end of if statment
+    end #end of stops_between_stations
+end #end of class
 
 
 class Line 
@@ -102,6 +109,6 @@ end
 
 mbta = Subway.new
 
-  mbta.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0 With the stations names
-  mbta.stops_between_stations('Red', 'South Station', 'Red', 'Alewife') # 7  With the stations names
-  mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') # 6  With the stations names
+  mbta.stops_between_stations() # 0 With the stations names
+  # mbta.stops_between_stations() # 7  With the stations names
+  # mbta.stops_between_stations() # 6  With the stations names
