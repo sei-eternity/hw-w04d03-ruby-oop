@@ -37,7 +37,7 @@ class Subway
       end
 
   
-    p passed_stations.join(", ")
+    p passed_stations[0..-2].join(", ") + (passed_stations.last == passed_stations.first ? "": " and ") + passed_stations.last
 
   else
     end_line.set_current_station(end_line_int)
@@ -48,7 +48,7 @@ class Subway
       passed_stations.push(start_line.current_station.name)
       stops += 1
     end
-    p passed_stations.join(", ")
+    p passed_stations[0..-2].join(", ") + (passed_stations.last == passed_stations.first ? "": " and ")+ passed_stations.last
 
     # change line
     passed_stations = []
@@ -60,7 +60,7 @@ class Subway
       passed_stations.push(end_line.current_station.name)
       stops += 1
     end
-    p passed_stations.join(", ")
+    p passed_stations[0..-2].join(", ") + (passed_stations.last == passed_stations.first ? "": " and ")+ passed_stations.last
   end
     
     p "#{stops} stops in total."
@@ -112,11 +112,11 @@ class Station
 end
 
 mbta = Subway.new 
-mbta.stops_between_stations('Red', 'Alewife', 'Red', 'South Station') # 7
-mbta.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
-mbta.stops_between_stations('Red','South Station', 'Red', 'Alewife' ) # 7
+# mbta.stops_between_stations('Red', 'Alewife', 'Red', 'South Station') # 7
+# mbta.stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
+# mbta.stops_between_stations('Red','South Station', 'Red', 'Alewife' ) # 7
 mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') # 6
 # mbta.stops_between_stations('Orange', 'Forest Hills', 'Green', 'Kenmore') 
 
-mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') 
+# mbta.stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') 
 
